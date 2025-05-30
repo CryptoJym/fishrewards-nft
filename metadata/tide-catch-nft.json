@@ -1,0 +1,67 @@
+{
+  "name": "FISH CERT - Tide Catch",
+  "description": "Mid-tier FISH Certificate with 75% weighting factor for reward distribution. Supports sustainable aquaculture and local jobs in fish commodity projects.",
+  "image": "ipfs://[HASH]/TUNA-FISH-V1.svg",
+  "external_url": "https://fishrewards.app",
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Tide Catch"
+    },
+    {
+      "trait_type": "Tier ID", 
+      "value": "tuna-fish"
+    },
+    {
+      "trait_type": "Weighting Factor",
+      "value": 0.75,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Starting Price",
+      "value": 500,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Phase 2 Multiplier",
+      "value": 3,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Max Supply",
+      "value": 10000,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Price Increment",
+      "value": 50,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Increment Interval",
+      "value": 100,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Color",
+      "value": "#FFE800"
+    }
+  ],
+  "properties": {
+    "tier_data": {
+      "id": "tuna-fish",
+      "name": "Tide Catch",
+      "weightingFactor": 0.75,
+      "startingPrice": 500,
+      "incrementAmount": 50,
+      "incrementInterval": 100,
+      "maxSupply": 10000,
+      "phase2Multiplier": 3,
+      "certColor": "#FFE800"
+    },
+    "contract_data": {
+      "packageId": 2,
+      "purchase_contract": "0x43bf526abad45cfae684e706cdbec1cf52a91646"
+    }
+  }
+}

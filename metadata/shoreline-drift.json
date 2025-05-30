@@ -1,0 +1,50 @@
+{
+  "name": "FISH CERT - Shoreline Drift",
+  "description": "Entry-level FISH Certificate providing 50% reward rate over 10 years. Perfect for new climate-conscious investors looking to make a positive environmental impact while earning sustainable returns.",
+  "image": "ipfs://QmShorelineDriftImageHash/shoreline-drift.png",
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Shoreline Drift"
+    },
+    {
+      "trait_type": "Reward Rate",
+      "value": "50%"
+    },
+    {
+      "trait_type": "Starting Price",
+      "value": "$250"
+    },
+    {
+      "trait_type": "Distribution Period",
+      "value": "3,650 days"
+    },
+    {
+      "trait_type": "Annual Yield",
+      "value": "5%"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Common"
+    },
+    {
+      "trait_type": "Environmental Impact",
+      "value": "Coastal Restoration"
+    },
+    {
+      "trait_type": "Status",
+      "value": "Active"
+    }
+  ],
+  "properties": {
+    "tier_level": 1,
+    "reward_rate_percentage": 50,
+    "starting_price_usd": 250,
+    "distribution_days": 3650,
+    "daily_reward_rate": 0.0137,
+    "max_supply": 10000,
+    "transferable": true,
+    "stakeable": true
+  },
+  "external_url": "https://fishrewards.app/certs/shoreline-drift"
+}

@@ -1,0 +1,51 @@
+{
+  "name": "FISH CERT - Reef Bounty",
+  "description": "Premium FISH Certificate delivering 125% reward rate over 10 years. Empowers investors to make significant contributions to coral reef restoration while earning substantial sustainable returns.",
+  "image": "ipfs://QmReefBountyImageHash/reef-bounty.png",
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Reef Bounty"
+    },
+    {
+      "trait_type": "Reward Rate",
+      "value": "125%"
+    },
+    {
+      "trait_type": "Starting Price",
+      "value": "$1,000"
+    },
+    {
+      "trait_type": "Distribution Period",
+      "value": "3,650 days"
+    },
+    {
+      "trait_type": "Annual Yield",
+      "value": "12.5%"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Environmental Impact",
+      "value": "Coral Reef Restoration"
+    },
+    {
+      "trait_type": "Status",
+      "value": "Active"
+    }
+  ],
+  "properties": {
+    "tier_level": 3,
+    "reward_rate_percentage": 125,
+    "starting_price_usd": 1000,
+    "distribution_days": 3650,
+    "daily_reward_rate": 0.0342,
+    "max_supply": 5000,
+    "transferable": true,
+    "stakeable": true,
+    "bonus_features": ["Priority Support", "Early Access", "Governance Rights"]
+  },
+  "external_url": "https://fishrewards.app/certs/reef-bounty"
+}

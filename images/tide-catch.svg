@@ -1,0 +1,52 @@
+<svg width="600" height="600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <defs>
+    <linearGradient id="tideGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E90FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#000080;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="600" height="600" fill="url(#tideGradient)"/>
+  
+  <!-- Tidal waves -->
+  <path d="M0,300 Q150,200 300,300 T600,300 L600,350 Q450,450 300,350 T0,350 Z" fill="#4169E1" opacity="0.6"/>
+  <path d="M0,400 Q150,300 300,400 T600,400 L600,450 Q450,550 300,450 T0,450 Z" fill="#191970" opacity="0.5"/>
+  
+  <!-- Moon (tide influence) -->
+  <circle cx="500" cy="100" r="40" fill="#F8F8FF" opacity="0.8"/>
+  <circle cx="510" cy="90" r="35" fill="#1E90FF" opacity="0.5"/>
+  
+  <!-- Fish symbol (more dynamic) -->
+  <g transform="translate(300,250)">
+    <ellipse cx="0" cy="0" rx="90" ry="45" fill="#B0C4DE" filter="url(#glow)"/>
+    <path d="M70,0 L100,-25 L100,25 Z" fill="#6495ED"/>
+    <circle cx="-35" cy="-10" r="10" fill="#fff"/>
+    <circle cx="-35" cy="-10" r="6" fill="#333"/>
+    <path d="M-80,0 Q-60,-35 -25,-25" fill="none" stroke="#4169E1" stroke-width="4"/>
+    <path d="M-80,0 Q-60,35 -25,25" fill="none" stroke="#4169E1" stroke-width="4"/>
+    <!-- Scales pattern -->
+    <circle cx="20" cy="0" r="8" fill="none" stroke="#6495ED" stroke-width="2"/>
+    <circle cx="40" cy="-10" r="8" fill="none" stroke="#6495ED" stroke-width="2"/>
+    <circle cx="40" cy="10" r="8" fill="none" stroke="#6495ED" stroke-width="2"/>
+  </g>
+  
+  <!-- CERT Badge -->
+  <g transform="translate(300,100)">
+    <circle cx="0" cy="0" r="65" fill="#fff" opacity="0.9"/>
+    <text x="0" y="-20" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#000080">FISH CERT</text>
+    <text x="0" y="0" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#000080">Tide</text>
+    <text x="0" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#000080">Catch</text>
+    <text x="0" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#4169E1">75%</text>
+  </g>
+  
+  <!-- Border -->
+  <rect x="10" y="10" width="580" height="580" fill="none" stroke="#191970" stroke-width="5" rx="20"/>
+</svg>

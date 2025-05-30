@@ -1,0 +1,67 @@
+{
+  "name": "FISH CERT - Seafarer's Crest",
+  "description": "Elite FISH Certificate with 150% weighting factor for reward distribution. Supports sustainable aquaculture and local jobs in fish commodity projects.",
+  "image": "ipfs://[HASH]/OPAH-FISH.png",
+  "external_url": "https://fishrewards.app",
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Seafarer's Crest"
+    },
+    {
+      "trait_type": "Tier ID",
+      "value": "opah-fish"
+    },
+    {
+      "trait_type": "Weighting Factor",
+      "value": 1.50,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Starting Price",
+      "value": 2000,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Phase 2 Multiplier",
+      "value": 6,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Max Supply",
+      "value": 2500,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Price Increment",
+      "value": 200,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Increment Interval",
+      "value": 100,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Color",
+      "value": "#FF8C00"
+    }
+  ],
+  "properties": {
+    "tier_data": {
+      "id": "opah-fish",
+      "name": "Seafarer's Crest",
+      "weightingFactor": 1.50,
+      "startingPrice": 2000,
+      "incrementAmount": 200,
+      "incrementInterval": 100,
+      "maxSupply": 2500,
+      "phase2Multiplier": 6,
+      "certColor": "#FF8C00"
+    },
+    "contract_data": {
+      "packageId": 4,
+      "purchase_contract": "0x43bf526abad45cfae684e706cdbec1cf52a91646"
+    }
+  }
+}

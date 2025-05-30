@@ -1,0 +1,56 @@
+<svg width="600" height="600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <defs>
+    <linearGradient id="reefGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF7F50;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FF1493;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B008B;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="600" height="600" fill="url(#reefGradient)"/>
+  
+  <!-- Coral reef shapes -->
+  <ellipse cx="100" cy="500" rx="60" ry="100" fill="#FF69B4" opacity="0.6"/>
+  <ellipse cx="200" cy="480" rx="40" ry="80" fill="#FF1493" opacity="0.5"/>
+  <ellipse cx="500" cy="490" rx="50" ry="90" fill="#FF69B4" opacity="0.6"/>
+  <ellipse cx="400" cy="470" rx="35" ry="70" fill="#FF1493" opacity="0.5"/>
+  
+  <!-- Coral branches -->
+  <path d="M150,450 Q140,400 160,380 Q150,360 170,340" fill="none" stroke="#FFB6C1" stroke-width="8" stroke-linecap="round"/>
+  <path d="M450,440 Q440,390 460,370 Q450,350 470,330" fill="none" stroke="#FFB6C1" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Premium Fish symbol -->
+  <g transform="translate(300,250)">
+    <ellipse cx="0" cy="0" rx="100" ry="50" fill="#FFD700" filter="url(#glow)"/>
+    <path d="M80,0 L110,-30 L110,30 Z" fill="#FF8C00"/>
+    <circle cx="-40" cy="-12" r="12" fill="#fff"/>
+    <circle cx="-40" cy="-12" r="8" fill="#333"/>
+    <!-- Ornate patterns -->
+    <path d="M-90,0 Q-70,-40 -30,-30" fill="none" stroke="#FF6347" stroke-width="5"/>
+    <path d="M-90,0 Q-70,40 -30,30" fill="none" stroke="#FF6347" stroke-width="5"/>
+    <circle cx="20" cy="0" r="10" fill="#FF6347" opacity="0.7"/>
+    <circle cx="45" cy="-15" r="10" fill="#FF6347" opacity="0.7"/>
+    <circle cx="45" cy="15" r="10" fill="#FF6347" opacity="0.7"/>
+  </g>
+  
+  <!-- CERT Badge (Premium) -->
+  <g transform="translate(300,100)">
+    <circle cx="0" cy="0" r="70" fill="#fff" opacity="0.95"/>
+    <circle cx="0" cy="0" r="65" fill="none" stroke="#FFD700" stroke-width="3"/>
+    <text x="0" y="-20" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#8B008B">FISH CERT</text>
+    <text x="0" y="0" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#8B008B">Reef</text>
+    <text x="0" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#8B008B">Bounty</text>
+    <text x="0" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#FF1493">125%</text>
+  </g>
+  
+  <!-- Premium Border -->
+  <rect x="10" y="10" width="580" height="580" fill="none" stroke="#FFD700" stroke-width="6" rx="20"/>
+</svg>

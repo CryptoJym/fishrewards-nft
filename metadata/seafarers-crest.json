@@ -1,0 +1,51 @@
+{
+  "name": "FISH CERT - Seafarer's Crest",
+  "description": "Elite FISH Certificate providing 150% reward rate over 10 years. For dedicated ocean conservationists who seek exceptional returns while championing deep-sea ecosystem protection.",
+  "image": "ipfs://QmSeafarersCrestImageHash/seafarers-crest.png",
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Seafarer's Crest"
+    },
+    {
+      "trait_type": "Reward Rate",
+      "value": "150%"
+    },
+    {
+      "trait_type": "Starting Price",
+      "value": "$2,000"
+    },
+    {
+      "trait_type": "Distribution Period",
+      "value": "3,650 days"
+    },
+    {
+      "trait_type": "Annual Yield",
+      "value": "15%"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "Environmental Impact",
+      "value": "Deep-Sea Conservation"
+    },
+    {
+      "trait_type": "Status",
+      "value": "Active"
+    }
+  ],
+  "properties": {
+    "tier_level": 4,
+    "reward_rate_percentage": 150,
+    "starting_price_usd": 2000,
+    "distribution_days": 3650,
+    "daily_reward_rate": 0.0411,
+    "max_supply": 2500,
+    "transferable": true,
+    "stakeable": true,
+    "bonus_features": ["Priority Support", "Early Access", "Governance Rights", "VIP Events"]
+  },
+  "external_url": "https://fishrewards.app/certs/seafarers-crest"
+}

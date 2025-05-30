@@ -1,0 +1,51 @@
+{
+  "name": "FISH CERT - Ocean Harvest",
+  "description": "Prestigious FISH Certificate yielding 175% reward rate over 10 years. Reserved for visionary investors committed to comprehensive ocean sustainability and maximum environmental impact.",
+  "image": "ipfs://QmOceanHarvestImageHash/ocean-harvest.png",
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Ocean Harvest"
+    },
+    {
+      "trait_type": "Reward Rate",
+      "value": "175%"
+    },
+    {
+      "trait_type": "Starting Price",
+      "value": "$5,000"
+    },
+    {
+      "trait_type": "Distribution Period",
+      "value": "3,650 days"
+    },
+    {
+      "trait_type": "Annual Yield",
+      "value": "17.5%"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Legendary"
+    },
+    {
+      "trait_type": "Environmental Impact",
+      "value": "Ocean-Wide Sustainability"
+    },
+    {
+      "trait_type": "Status",
+      "value": "Active"
+    }
+  ],
+  "properties": {
+    "tier_level": 5,
+    "reward_rate_percentage": 175,
+    "starting_price_usd": 5000,
+    "distribution_days": 3650,
+    "daily_reward_rate": 0.0479,
+    "max_supply": 1000,
+    "transferable": true,
+    "stakeable": true,
+    "bonus_features": ["Priority Support", "Early Access", "Governance Rights", "VIP Events", "Personal Impact Reports"]
+  },
+  "external_url": "https://fishrewards.app/certs/ocean-harvest"
+}

@@ -1,0 +1,67 @@
+{
+  "name": "FISH CERT - Shoreline Drift",
+  "description": "Entry-level FISH Certificate with 50% weighting factor for reward distribution. Supports sustainable aquaculture and local jobs in fish commodity projects.",
+  "image": "ipfs://[HASH]/COD-FISH-CERT-V1.svg",
+  "external_url": "https://fishrewards.app",
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Shoreline Drift"
+    },
+    {
+      "trait_type": "Tier ID",
+      "value": "cod-fish"
+    },
+    {
+      "trait_type": "Weighting Factor",
+      "value": 0.50,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Starting Price",
+      "value": 250,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Phase 2 Multiplier",
+      "value": 2,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Max Supply",
+      "value": 12500,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Price Increment",
+      "value": 25,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Increment Interval",
+      "value": 100,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Color",
+      "value": "#FC54FF"
+    }
+  ],
+  "properties": {
+    "tier_data": {
+      "id": "cod-fish",
+      "name": "Shoreline Drift",
+      "weightingFactor": 0.50,
+      "startingPrice": 250,
+      "incrementAmount": 25,
+      "incrementInterval": 100,
+      "maxSupply": 12500,
+      "phase2Multiplier": 2,
+      "certColor": "#FC54FF"
+    },
+    "contract_data": {
+      "packageId": 1,
+      "purchase_contract": "0x43bf526abad45cfae684e706cdbec1cf52a91646"
+    }
+  }
+}

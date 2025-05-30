@@ -1,0 +1,67 @@
+{
+  "name": "FISH CERT - Ocean Harvest",
+  "description": "Legendary FISH Certificate with 175% weighting factor for reward distribution. Supports sustainable aquaculture and local jobs in fish commodity projects.",
+  "image": "ipfs://[HASH]/SAIL-FISH.png",
+  "external_url": "https://fishrewards.app",
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Ocean Harvest"
+    },
+    {
+      "trait_type": "Tier ID",
+      "value": "sail-fish"
+    },
+    {
+      "trait_type": "Weighting Factor",
+      "value": 1.75,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Starting Price",
+      "value": 5000,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Phase 2 Multiplier",
+      "value": 7,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Max Supply",
+      "value": 1250,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Price Increment",
+      "value": 500,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Increment Interval",
+      "value": 100,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Color",
+      "value": "#00BFFF"
+    }
+  ],
+  "properties": {
+    "tier_data": {
+      "id": "sail-fish",
+      "name": "Ocean Harvest",
+      "weightingFactor": 1.75,
+      "startingPrice": 5000,
+      "incrementAmount": 500,
+      "incrementInterval": 100,
+      "maxSupply": 1250,
+      "phase2Multiplier": 7,
+      "certColor": "#00BFFF"
+    },
+    "contract_data": {
+      "packageId": 5,
+      "purchase_contract": "0x43bf526abad45cfae684e706cdbec1cf52a91646"
+    }
+  }
+}

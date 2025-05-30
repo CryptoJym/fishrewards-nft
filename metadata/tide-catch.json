@@ -1,0 +1,51 @@
+{
+  "name": "FISH CERT - Tide Catch",
+  "description": "Mid-tier FISH Certificate offering 75% reward rate over 10 years. Designed for committed environmental investors seeking balanced returns while supporting marine ecosystem preservation.",
+  "image": "ipfs://QmTideCatchImageHash/tide-catch.png",
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Tide Catch"
+    },
+    {
+      "trait_type": "Reward Rate",
+      "value": "75%"
+    },
+    {
+      "trait_type": "Starting Price",
+      "value": "$500"
+    },
+    {
+      "trait_type": "Distribution Period",
+      "value": "3,650 days"
+    },
+    {
+      "trait_type": "Annual Yield",
+      "value": "7.5%"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Uncommon"
+    },
+    {
+      "trait_type": "Environmental Impact",
+      "value": "Tidal Zone Protection"
+    },
+    {
+      "trait_type": "Status",
+      "value": "Active"
+    }
+  ],
+  "properties": {
+    "tier_level": 2,
+    "reward_rate_percentage": 75,
+    "starting_price_usd": 500,
+    "distribution_days": 3650,
+    "daily_reward_rate": 0.0205,
+    "max_supply": 7500,
+    "transferable": true,
+    "stakeable": true,
+    "bonus_features": ["Priority Support", "Early Access"]
+  },
+  "external_url": "https://fishrewards.app/certs/tide-catch"
+}

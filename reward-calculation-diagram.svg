@@ -1,0 +1,121 @@
+<svg width="1000" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold">
+    FISH CERT Reward Calculation Flow
+  </text>
+  
+  <!-- Total Pool Box -->
+  <g transform="translate(50,60)">
+    <rect width="200" height="80" fill="#4169E1" rx="5" filter="url(#shadow)"/>
+    <text x="100" y="30" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Total Staker Pool</text>
+    <text x="100" y="55" text-anchor="middle" fill="white" font-size="16">5.49 Billion FISH</text>
+    <text x="100" y="75" text-anchor="middle" fill="white" font-size="12">(10 Year Distribution)</text>
+  </g>
+  
+  <!-- Yearly Pools -->
+  <g transform="translate(350,60)">
+    <rect width="600" height="80" fill="#228B22" rx="5" filter="url(#shadow)"/>
+    <text x="300" y="25" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Yearly Pool Distribution (Halving)</text>
+    <text x="50" y="50" text-anchor="middle" fill="white" font-size="12">Year 1</text>
+    <text x="50" y="65" text-anchor="middle" fill="white" font-size="11">2.745B</text>
+    <text x="150" y="50" text-anchor="middle" fill="white" font-size="12">Year 2</text>
+    <text x="150" y="65" text-anchor="middle" fill="white" font-size="11">1.373B</text>
+    <text x="250" y="50" text-anchor="middle" fill="white" font-size="12">Year 3</text>
+    <text x="250" y="65" text-anchor="middle" fill="white" font-size="11">686M</text>
+    <text x="350" y="50" text-anchor="middle" fill="white" font-size="12">Year 4</text>
+    <text x="350" y="65" text-anchor="middle" fill="white" font-size="11">343M</text>
+    <text x="450" y="55" text-anchor="middle" fill="white" font-size="14">...</text>
+    <text x="550" y="50" text-anchor="middle" fill="white" font-size="12">Year 10</text>
+    <text x="550" y="65" text-anchor="middle" fill="white" font-size="11">5.36M</text>
+  </g>
+  
+  <!-- Arrow from Total to Yearly -->
+  <line x1="250" y1="100" x2="350" y2="100" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Daily Pool Calculation -->
+  <g transform="translate(400,180)">
+    <rect width="200" height="60" fill="#FF6347" rx="5" filter="url(#shadow)"/>
+    <text x="100" y="25" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Daily Pool</text>
+    <text x="100" y="45" text-anchor="middle" fill="white" font-size="12">Yearly Pool ÷ 365</text>
+  </g>
+  
+  <!-- Arrow from Yearly to Daily -->
+  <line x1="650" y1="140" x2="500" y2="180" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Weighted Stake Calculation -->
+  <g transform="translate(50,280)">
+    <rect width="900" height="120" fill="#9370DB" rx="5" filter="url(#shadow)"/>
+    <text x="450" y="25" text-anchor="middle" fill="white" font-size="16" font-weight="bold">Weighted Stake Calculation</text>
+    
+    <!-- Formula -->
+    <text x="450" y="55" text-anchor="middle" fill="white" font-size="14">
+      Weighted Stake = Quantity × Weighting Factor × Phase 2 Multiplier (if Year ≥ 5)
+    </text>
+    
+    <!-- Examples -->
+    <text x="150" y="85" text-anchor="middle" fill="white" font-size="12">Shoreline Drift:</text>
+    <text x="150" y="100" text-anchor="middle" fill="white" font-size="11">100 × 0.50 × 1 = 50</text>
+    
+    <text x="350" y="85" text-anchor="middle" fill="white" font-size="12">Reef Bounty:</text>
+    <text x="350" y="100" text-anchor="middle" fill="white" font-size="11">100 × 1.25 × 1 = 125</text>
+    
+    <text x="550" y="85" text-anchor="middle" fill="white" font-size="12">Legacy (Phase 2):</text>
+    <text x="550" y="100" text-anchor="middle" fill="white" font-size="11">100 × 2.00 × 8 = 1600</text>
+    
+    <text x="750" y="85" text-anchor="middle" fill="white" font-size="12">Global Total:</text>
+    <text x="750" y="100" text-anchor="middle" fill="white" font-size="11">Sum of all stakes</text>
+  </g>
+  
+  <!-- User Share Calculation -->
+  <g transform="translate(200,440)">
+    <rect width="600" height="80" fill="#FF8C00" rx="5" filter="url(#shadow)"/>
+    <text x="300" y="30" text-anchor="middle" fill="white" font-size="16" font-weight="bold">User Daily Rewards</text>
+    <text x="300" y="55" text-anchor="middle" fill="white" font-size="14">
+      = (User Weighted Stake ÷ Global Weighted Stake) × Daily Pool
+    </text>
+    <text x="300" y="75" text-anchor="middle" fill="white" font-size="12">
+      Example: (125 ÷ 50,000) × 7,520,547 = 18,801 FISH/day
+    </text>
+  </g>
+  
+  <!-- Arrows -->
+  <line x1="500" y1="240" x2="500" y2="280" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="500" y1="400" x2="500" y2="440" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Phase 2 Note -->
+  <g transform="translate(50,560)">
+    <rect width="400" height="80" fill="#FFD700" rx="5" filter="url(#shadow)"/>
+    <text x="200" y="25" text-anchor="middle" fill="#333" font-size="14" font-weight="bold">Phase 2 Multiplier Event</text>
+    <text x="200" y="45" text-anchor="middle" fill="#333" font-size="12">Triggers at Year 5 (configurable)</text>
+    <text x="200" y="65" text-anchor="middle" fill="#333" font-size="12">Multiplies CERTs: 2x, 3x, 5x, 6x, 7x, 8x</text>
+  </g>
+  
+  <!-- Break-even Calculation -->
+  <g transform="translate(500,560)">
+    <rect width="450" height="80" fill="#008080" rx="5" filter="url(#shadow)"/>
+    <text x="225" y="25" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Break-even Calculation</text>
+    <text x="225" y="45" text-anchor="middle" fill="white" font-size="12">Days = Total Cost ÷ (Daily FISH × Token Price)</text>
+    <text x="225" y="65" text-anchor="middle" fill="white" font-size="12">Example: $1,000 ÷ (18,801 × $0.025) = 2,128 days</text>
+  </g>
+  
+  <!-- Legend -->
+  <g transform="translate(50,680)">
+    <rect width="900" height="80" fill="#f0f0f0" rx="5" filter="url(#shadow)"/>
+    <text x="450" y="25" text-anchor="middle" font-size="14" font-weight="bold">Key Points</text>
+    <text x="150" y="50" font-size="11">• Rewards based on weighted stake share</text>
+    <text x="150" y="65" font-size="11">• Not fixed APY returns</text>
+    <text x="450" y="50" font-size="11">• Pool halves yearly</text>
+    <text x="450" y="65" font-size="11">• Phase 2 dramatically increases rewards</text>
+    <text x="750" y="50" font-size="11">• Price increases every 100 sold</text>
+    <text x="750" y="65" font-size="11">• Break-even depends on token price</text>
+  </g>
+</svg>

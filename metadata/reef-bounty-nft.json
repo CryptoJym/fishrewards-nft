@@ -1,0 +1,67 @@
+{
+  "name": "FISH CERT - Reef Bounty",
+  "description": "Premium FISH Certificate with 125% weighting factor for reward distribution. Supports sustainable aquaculture and local jobs in fish commodity projects.",
+  "image": "ipfs://[HASH]/KING-FISH-V1.svg",
+  "external_url": "https://fishrewards.app",
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Reef Bounty"
+    },
+    {
+      "trait_type": "Tier ID",
+      "value": "king-fish"
+    },
+    {
+      "trait_type": "Weighting Factor",
+      "value": 1.25,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Starting Price",
+      "value": 1000,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Phase 2 Multiplier",
+      "value": 5,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Max Supply",
+      "value": 5000,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Price Increment",
+      "value": 100,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Increment Interval",
+      "value": 100,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Color",
+      "value": "#39FF14"
+    }
+  ],
+  "properties": {
+    "tier_data": {
+      "id": "king-fish",
+      "name": "Reef Bounty",
+      "weightingFactor": 1.25,
+      "startingPrice": 1000,
+      "incrementAmount": 100,
+      "incrementInterval": 100,
+      "maxSupply": 5000,
+      "phase2Multiplier": 5,
+      "certColor": "#39FF14"
+    },
+    "contract_data": {
+      "packageId": 3,
+      "purchase_contract": "0x43bf526abad45cfae684e706cdbec1cf52a91646"
+    }
+  }
+}
