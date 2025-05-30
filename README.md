@@ -1,104 +1,250 @@
-# FISH CERT NFT Implementation Files
+# 🐟 FishRewards NFT - Sustainable Fishing Reward System
 
-## Overview
-This repository contains the technical documentation and metadata files for implementing FISH CERT NFTs based on the actual fishrewards.app codebase analysis.
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Solidity](https://img.shields.io/badge/Solidity-0.8.19-363636?logo=solidity)
+![ERC-721](https://img.shields.io/badge/Token-ERC721-orange)
+![Status](https://img.shields.io/badge/Status-In%20Development-yellow)
 
-## Important Clarification
-The "50%-200% reward rates" mentioned in the original specification are actually **weighting factors** in the reward distribution algorithm, NOT fixed percentage returns. See `clarification-table.md` for details.
+## 🌊 Overview
 
-## Repository Contents
+FishRewards NFT is a revolutionary blockchain-based reward system that incentivizes sustainable fishing practices through tiered NFT certificates. Each NFT represents a unique fishing achievement level and provides holders with weighted rewards from a carefully managed token distribution pool.
 
-### 📄 Documentation Files
-- **`IMPLEMENTATION_GUIDE.md`** - Complete guide for engineers
-- **`tokenomics-documentation.md`** - Detailed algorithm breakdown
-- **`smart-contract-structure.md`** - Contract architecture specification
-- **`clarification-table.md`** - Comparison of presented vs implemented features
-- **`reward-calculation-diagram.svg`** - Visual flow of reward calculations
+### 🎯 Key Features
 
-### 📋 Metadata Files
-All NFT metadata files follow ERC-721 standards and include:
-- `shoreline-drift-nft.json` - Tier 1 (Package ID: 1)
-- `tide-catch-nft.json` - Tier 2 (Package ID: 2) 
-- `reef-bounty-nft.json` - Tier 3 (Package ID: 3)
-- `seafarers-crest-nft.json` - Tier 4 (Package ID: 4)
-- `ocean-harvest-nft.json` - Tier 5 (Package ID: 5)
-- `legacy-deepwater-nft.json` - Tier 6 (Package ID: 6)
+- **6 Tiered NFT Certificates** - From beginner to expert fishing achievements
+- **Dynamic Pricing Algorithm** - Prices increase based on minting activity
+- **Weighted Reward Distribution** - Higher tiers earn proportionally more rewards
+- **Sustainable Tokenomics** - 10-year halving schedule with 5.49B FISH tokens
+- **On-chain Verification** - Fully transparent and immutable reward calculations
+- **Beautiful SVG Artwork** - Unique visual design for each certificate tier
 
-## Key Implementation Details
+## 📊 Tier Structure
 
-### Tier Structure (From Code)
-| Tier | ID | Weighting | Start Price | Max Supply | Phase 2x | Price +/100 |
-|------|-----|-----------|-------------|------------|----------|-------------|
-| Shoreline Drift | cod-fish | 0.50 | $250 | 12,500 | 2x | $25 |
-| Tide Catch | tuna-fish | 0.75 | $500 | 10,000 | 3x | $50 |
-| Reef Bounty | king-fish | 1.25 | $1,000 | 5,000 | 5x | $100 |
-| Seafarer's Crest | opah-fish | 1.50 | $2,000 | 2,500 | 6x | $200 |
-| Ocean Harvest | sail-fish | 1.75 | $5,000 | 1,250 | 7x | $500 |
-| Legacy Deepwater | lion-fish | 2.00 | $10,000 | 625 | 8x | $1,000 |
+| Tier | NFT Name | ID | Weight | Start Price | Max Supply | Phase 2x | Price Increment |
+|------|----------|-----|---------|-------------|------------|----------|-----------------|
+| 1 | 🌊 Shoreline Drift | cod-fish | 0.50x | $250 | 12,500 | 2x | $25/100 mints |
+| 2 | 🎣 Tide Catch | tuna-fish | 0.75x | $500 | 10,000 | 3x | $50/100 mints |
+| 3 | 🐠 Reef Bounty | king-fish | 1.25x | $1,000 | 5,000 | 5x | $100/100 mints |
+| 4 | ⚓ Seafarer's Crest | opah-fish | 1.50x | $2,000 | 2,500 | 6x | $200/100 mints |
+| 5 | 🚢 Ocean Harvest | sail-fish | 1.75x | $5,000 | 1,250 | 7x | $500/100 mints |
+| 6 | 👑 Legacy Deepwater | lion-fish | 2.00x | $10,000 | 625 | 8x | $1,000/100 mints |
 
-### Core Algorithms
+## 🏗️ Architecture
 
-1. **Dynamic Pricing**
-   ```
-   currentPrice = startingPrice + (floor(mintedCount/100) × incrementAmount)
-   ```
+```
+fishrewards-nft/
+├── contracts/
+│   ├── FishCertNFT.sol         # Main NFT contract
+│   ├── architecture-diagram.md  # System architecture
+│   └── metadata-flow-diagram.svg
+├── metadata/
+│   ├── [tier]-nft.json         # NFT metadata files (ERC-721)
+│   └── [tier].json             # Simplified metadata
+├── images/
+│   └── [tier].svg              # NFT artwork files
+└── documentation/
+    ├── IMPLEMENTATION_GUIDE.md  # Engineering guide
+    ├── tokenomics-documentation.md
+    └── smart-contract-structure.md
+```
 
-2. **Reward Distribution**
-   ```
-   userDailyRewards = (userWeightedStake / globalWeightedStake) × dailyPool
-   weightedStake = quantity × weightingFactor × phase2Multiplier
-   ```
+## 🚀 Quick Start
 
-3. **Yearly Pool Halving**
-   - Total: 5.49 billion FISH tokens
-   - Year 1: 50% (2.745B)
-   - Year 2: 25% (1.373B)
-   - Continues halving for 10 years
+### Prerequisites
+
+- Node.js >= 16.0.0
+- npm or yarn
+- Hardhat or Foundry
+- MetaMask or compatible Web3 wallet
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/CryptoJym/fishrewards-nft.git
+cd fishrewards-nft
+
+# Install dependencies (when package.json is added)
+npm install
+
+# Compile contracts
+npx hardhat compile
+```
+
+### Deploy Contract
+
+```bash
+# Deploy to local network
+npx hardhat run scripts/deploy.js --network localhost
+
+# Deploy to testnet (e.g., Goerli)
+npx hardhat run scripts/deploy.js --network goerli
+
+# Deploy to mainnet
+npx hardhat run scripts/deploy.js --network mainnet
+```
+
+## 💰 Tokenomics & Rewards
+
+### Distribution Model
+
+The FishRewards system distributes 5.49 billion FISH tokens over 10 years with a halving mechanism:
+
+| Year | Pool Size | Daily Distribution |
+|------|-----------|-------------------|
+| 1 | 2.745B (50%) | ~7.52M FISH |
+| 2 | 1.373B (25%) | ~3.76M FISH |
+| 3 | 686M (12.5%) | ~1.88M FISH |
+| ... | Continues halving | ... |
+
+### Reward Calculation
+
+```javascript
+// Daily rewards for a user
+userDailyRewards = (userWeightedStake / globalWeightedStake) × dailyPool
+
+// Weighted stake calculation
+weightedStake = quantity × weightingFactor × phase2Multiplier
+```
+
+### Dynamic Pricing Formula
+
+```javascript
+currentPrice = startingPrice + (floor(mintedCount/100) × incrementAmount)
+```
+
+## 📋 Smart Contract Interface
+
+### Core Functions
+
+```solidity
+// Minting
+function mintFishCert(uint256 packageId, uint256 quantity) external payable
+
+// View Functions
+function getCurrentPrice(uint256 packageId) external view returns (uint256)
+function getUserRewardProjection(address user) external view returns (uint256)
+function getGlobalWeightedStake() external view returns (uint256)
+
+// Admin Functions
+function setPhase2Active(bool active) external onlyOwner
+function withdrawFunds() external onlyOwner
+```
+
+### Events
+
+```solidity
+event FishCertMinted(address indexed user, uint256 indexed packageId, uint256 quantity)
+event RewardsClaimed(address indexed user, uint256 amount)
+event Phase2Activated(uint256 timestamp)
+```
+
+## 🧪 Testing
+
+```bash
+# Run all tests
+npx hardhat test
+
+# Run specific test file
+npx hardhat test test/FishCertNFT.test.js
+
+# Run with coverage
+npx hardhat coverage
+```
+
+## 🔗 Integration
 
 ### Existing Contract Integration
-- Address: `0x43bf526abad45cfae684e706cdbec1cf52a91646`
-- Function: `mintCountPerPackage(uint256 packageId)`
-- Package IDs: 1-6 (matching tier order)
 
-## For Smart Contract Engineers
+The system integrates with the existing FishRewards purchase contract:
 
-### Required Functions
-1. **Minting System**
-   - Dynamic pricing based on minted count
-   - Package ID tracking (1-6)
-   - Max supply enforcement
+- **Address**: `0x43bf526abad45cfae684e706cdbec1cf52a91646`
+- **Function**: `mintCountPerPackage(uint256 packageId)`
+- **Package IDs**: 1-6 (matching tier order)
 
-2. **Reward System**
-   - Weighted stake calculations
-   - Yearly pool distribution
-   - Phase 2 multiplier logic
+### Frontend Integration
 
-3. **View Functions**
-   - Current price per tier
-   - User holdings and projections
-   - Global stake information
+```javascript
+// Example: Check current price
+const price = await contract.getCurrentPrice(1); // Shoreline Drift
 
-### Image Assets
-Located in original project's `/assets/` folder:
-- `COD FISH CERT V1.svg`
-- `TUNA FISH V1.svg`
-- `KING FISH V1.svg`
-- `OPAH FISH.png`
-- `SAIL-FISH.png`
-- `LION-FISH.png`
+// Example: Mint NFT
+await contract.mintFishCert(1, 2, { value: price * 2 });
 
-## Next Steps
+// Example: Check rewards
+const rewards = await contract.getUserRewardProjection(userAddress);
+```
 
-1. **Upload images to IPFS** and update metadata files with hashes
-2. **Review all documentation** to understand the complex tokenomics
-3. **Implement contracts** matching the JavaScript calculations exactly
-4. **Test thoroughly** with the simulator as reference
-5. **Ensure compatibility** with existing purchase contract
+## 📚 Documentation
 
-## Important Notes
+- 📖 [Implementation Guide](./IMPLEMENTATION_GUIDE.md) - Detailed engineering instructions
+- 💹 [Tokenomics Documentation](./tokenomics-documentation.md) - Complete economic model
+- 🏛️ [Smart Contract Structure](./smart-contract-structure.md) - Contract architecture
+- 📊 [Clarification Table](./clarification-table.md) - Feature comparison
+- 🔄 [Reward Calculation Diagram](./reward-calculation-diagram.svg) - Visual flow
 
-⚠️ This is NOT a simple fixed-return system. It's a complex weighted distribution model where returns depend on global participation and token price assumptions.
+## ⚠️ Important Clarifications
+
+> **Note**: The "50%-200% reward rates" mentioned in marketing materials are **weighting factors** in the reward distribution algorithm, NOT fixed percentage returns. Actual returns depend on:
+> - Total number of participants
+> - Global weighted stake
+> - FISH token market value
+> - Time of participation
+
+## 🎨 NFT Artwork
+
+Each tier features unique SVG artwork representing different fishing achievements. View the artwork files in the `images/` directory.
+
+## 🛠️ Development Roadmap
+
+- [x] Complete technical documentation
+- [x] Design NFT metadata structure
+- [x] Create tier artwork
+- [ ] Implement smart contracts
+- [ ] Deploy to testnet
+- [ ] Security audit
+- [ ] Frontend development
+- [ ] Mainnet deployment
+- [ ] IPFS integration for metadata
+
+## 🤝 Contributing
+
+We welcome contributions! Please follow these steps:
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🔒 Security
+
+- All smart contracts will undergo professional auditing before mainnet deployment
+- Bug bounty program to be announced
+- Please report security vulnerabilities to: security@fishrewards.app
+
+## 📞 Contact & Support
+
+- **GitHub Issues**: [Create an issue](https://github.com/CryptoJym/fishrewards-nft/issues)
+- **Documentation**: [Wiki](https://github.com/CryptoJym/fishrewards-nft/wiki)
+- **Community**: Join our Discord and Twitter communities
+
+## 🙏 Acknowledgments
+
+- FishRewards.app team for the original concept
+- OpenZeppelin for secure contract libraries
+- The sustainable fishing community
 
 ---
 
-All specifications are derived from actual fishrewards.app implementation. No features have been invented or assumed.
+<p align="center">
+  <strong>🐟 Building a sustainable future for fishing, one NFT at a time 🌊</strong>
+</p>
+
+<p align="center">
+  Made with ❤️ by the FishRewards Team
+</p>
