@@ -183,6 +183,14 @@ const rewards = await contract.getUserRewardProjection(userAddress);
 - 📊 [Clarification Table](./clarification-table.md) - Feature comparison
 - 🔄 [Reward Calculation Diagram](./reward-calculation-diagram.svg) - Visual flow
 
+## 🎨 Branding & Design Resources
+
+- 🎯 [Brand Guide](./BRANDING_GUIDE.md) - Complete brand identity system
+- 🖼️ [NFT Visual Style Guide](./NFT_VISUAL_STYLE_GUIDE.md) - Tier-specific design specifications
+- 🌊 **Design Philosophy**: Ocean-inspired depth with sustainable luxury
+- 🎨 **Color System**: Deep ocean blues transitioning to prestigious golds
+- ✨ **Visual Progression**: Each tier more premium than the last
+
 ## ⚠️ Important Clarifications
 
 > **Note**: The "50%-200% reward rates" mentioned in marketing materials are **weighting factors** in the reward distribution algorithm, NOT fixed percentage returns. Actual returns depend on:
