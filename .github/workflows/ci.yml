@@ -1,0 +1,69 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ matrix.python-version }}-${{ hashFiles('**/requirements*.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-${{ matrix.python-version }}-
+            ${{ runner.os }}-pip-
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -r requirements-dev.txt
+
+      - name: Run linting
+        run: |
+          # Add your linting commands here
+          # Examples:
+          # ruff check .
+          # black --check .
+          # flake8 .
+          echo "Add your linting commands here"
+
+      - name: Run tests with coverage
+        run: |
+          # Adjust this command for your test framework
+          pytest --cov=. --cov-report=xml || echo "No tests found"
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          fail_ci_if_error: false
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+      # Optional: Build Docker image
+      - name: Build Docker image
+        if: hashFiles('Dockerfile') != ''
+        run: docker build -t ${{ github.repository }}:${{ github.sha }} .
+
+      # Optional: Security scan
+      - name: Run security scan
+        continue-on-error: true
+        run: |
+          pip install safety
+          safety check || true

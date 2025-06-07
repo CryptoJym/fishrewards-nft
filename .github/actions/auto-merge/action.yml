@@ -1,0 +1,24 @@
+name: "Enable PR Auto-Merge"
+description: "Composite action to enable auto-merge on a pull request using the GitHub API."
+
+inputs:
+  pr_number:
+    description: "Pull request number to merge"
+    required: true
+  merge_method:
+    description: "Merge method: merge, squash, or rebase"
+    required: false
+    default: "squash"
+  token:
+    description: "GitHub token with pull-request write permissions"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Enable auto-merge for PR
+      uses: peter-evans/enable-pull-request-automerge@v3
+      with:
+        token: ${{ inputs.token }}
+        pull-request-number: ${{ inputs.pr_number }}
+        merge-method: ${{ inputs.merge_method }}
