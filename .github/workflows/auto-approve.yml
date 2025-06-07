@@ -1,0 +1,22 @@
+name: Auto Approve
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+jobs:
+  auto-approve:
+    runs-on: ubuntu-latest
+    if: |
+      (github.event.pull_request.user.login == 'dependabot[bot]' ||
+       github.event.pull_request.user.login == 'renovate[bot]' ||
+       github.event.pull_request.user.login == 'github-actions[bot]' ||
+       contains(github.event.pull_request.labels.*.name, 'auto-approve'))
+    steps:
+      - name: Approve PR
+        uses: hmarr/auto-approve-action@v4
+        with:
+          github-token: ${{ secrets.GH_BOT_TOKEN || secrets.GITHUB_TOKEN }}
