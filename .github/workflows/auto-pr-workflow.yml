@@ -1,0 +1,115 @@
+name: Auto Create PR
+
+on:
+  push:
+    branches:
+      - '**'
+      - '!main'
+      - '!master'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    # Only run if this is not already a PR branch
+    if: github.event_name == 'push' && !contains(github.event.ref, 'pull/')
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Extract branch info
+        id: branch
+        run: |
+          BRANCH_NAME="${GITHUB_REF#refs/heads/}"
+          echo "name=$BRANCH_NAME" >> $GITHUB_OUTPUT
+          
+          # Generate PR title from branch name
+          # Convert branch name to title case and replace separators
+          PR_TITLE=$(echo "$BRANCH_NAME" | sed 's/[-_]/ /g' | sed 's/\b\(.\)/\u\1/g')
+          echo "title=$PR_TITLE" >> $GITHUB_OUTPUT
+
+      - name: Check if PR already exists
+        id: check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR_EXISTS=$(gh pr list --head "${{ steps.branch.outputs.name }}" --json number --jq '.[0].number // empty')
+          if [ -n "$PR_EXISTS" ]; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+            echo "number=$PR_EXISTS" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Get commit messages for PR body
+        if: steps.check.outputs.exists == 'false'
+        id: commits
+        run: |
+          # Get commits that are in this branch but not in main
+          COMMITS=$(git log origin/main..HEAD --pretty=format:"- %s" --reverse)
+          
+          # Create PR body
+          {
+            echo "body<<EOF"
+            echo "## Summary"
+            echo "This PR was automatically created from branch \`${{ steps.branch.outputs.name }}\`"
+            echo ""
+            echo "## Changes"
+            echo "$COMMITS"
+            echo ""
+            echo "## Checklist"
+            echo "- [ ] Code has been tested"
+            echo "- [ ] Documentation has been updated"
+            echo "- [ ] All checks are passing"
+            echo "EOF"
+          } >> $GITHUB_OUTPUT
+
+      - name: Create Pull Request
+        if: steps.check.outputs.exists == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr create \
+            --title "${{ steps.branch.outputs.title }}" \
+            --body "${{ steps.commits.outputs.body }}" \
+            --head "${{ steps.branch.outputs.name }}" \
+            --base main
+            
+      - name: Enable auto-merge
+        if: steps.check.outputs.exists == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Wait a moment for PR to be fully created
+          sleep 2
+          
+          # Get the PR number that was just created
+          PR_NUMBER=$(gh pr list --head "${{ steps.branch.outputs.name }}" --json number --jq '.[0].number')
+          
+          # Enable auto-merge if repository supports it
+          gh pr merge "$PR_NUMBER" --auto --squash || echo "Auto-merge not available or already enabled"
+          
+      - name: Add labels
+        if: steps.check.outputs.exists == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR_NUMBER=$(gh pr list --head "${{ steps.branch.outputs.name }}" --json number --jq '.[0].number')
+          
+          # Add auto-generated label
+          gh pr edit "$PR_NUMBER" --add-label "auto-pr" || echo "Label doesn't exist yet"
+          
+          # Add feature/fix/chore label based on branch name
+          if [[ "${{ steps.branch.outputs.name }}" == feat* ]] || [[ "${{ steps.branch.outputs.name }}" == feature* ]]; then
+            gh pr edit "$PR_NUMBER" --add-label "feature" || true
+          elif [[ "${{ steps.branch.outputs.name }}" == fix* ]] || [[ "${{ steps.branch.outputs.name }}" == bug* ]]; then
+            gh pr edit "$PR_NUMBER" --add-label "bug" || true
+          elif [[ "${{ steps.branch.outputs.name }}" == chore* ]] || [[ "${{ steps.branch.outputs.name }}" == refactor* ]]; then
+            gh pr edit "$PR_NUMBER" --add-label "chore" || true
+          fi
